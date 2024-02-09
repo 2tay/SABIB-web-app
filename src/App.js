@@ -1,30 +1,28 @@
-import React from 'react';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import NotFound from './pages/NotFound';
-import PublicRoutes from './utils/PublicRoutes';
-import PrivateRoutes from './utils/PrivateRoutes';
+import React from'react';
+//rotas
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+//pages
 import Home from './pages/Home';
-import Devices from './pages/Devices';
+import About from './pages/About';
+import Contact from './pages/Contact';
+//componentes
+import Navbar from './components/Navbar';
+import Footer from './components/Footer/Footer';
 
-const App = () => {
+function App() {
   return (
-      <Routes>
-        {/* Public Routes */}
-        <Route element = {<PublicRoutes />} >
-          <Route path='/login' element={<Login/>} />
-          <Route path='/register' element={<Register/>} />
-        </Route>
-        {/* Private Routes */}
-        <Route element={<PrivateRoutes />}>
-          <Route exact path='/' element={<Home/>} />
-          <Route path='/devices' element={<Devices/>} />
-        </Route>
-
-        <Route path='*' element={<NotFound/>} />
-      </Routes>
-  )
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+      <Footer />
+    </>
+  );
 }
 
 export default App;

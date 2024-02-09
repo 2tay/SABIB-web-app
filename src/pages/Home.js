@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import useAuth from '../hooks/useAuth';
-import axios from 'axios';
+import React from 'react'
+import GetInTouch from '../components/GetInTouch';
+import GetStarted from '../components/GetStarted';
+import Header from '../components/Header';
 
 const Home = () => {
-
-
   return (
-    <div className="container mt-5">
-      <h2>Home</h2>
+    <>
+    <Header />
+    <GetStarted />
+    <GetInTouch />
+    </>
 
-    </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
